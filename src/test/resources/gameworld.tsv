@@ -1,0 +1,6 @@
+Type	Class	Name	Description Usable	Equippable	Droppable	Stackable	Value	Damage	Rarity	Icon
+Item	Sword	Iron Sword	A sturdy iron sword.	true	true	true	false	23	15	uncommon	⚔️
+Item	Apple	Healthy Fruit	An apple that restores health.	true	false	true	true	10	0	common	🧪
+Character	NPC	NPC_Guard	A vigilant city guard.	false	false	false	false	0	0	common	👮
+Character	NPC	NPC_Merchant	A friendly merchant.	false	false	false	false	0	0	common	🧑‍💼
+Character	Player	Hero	The hero of our story.	false	false	false	false	0	0	common	🧙
