@@ -1,10 +1,14 @@
 package nl.bioinf.rpg;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
 public class WorldBuilderFromConfig {
+    private static final Logger logger = LogManager.getLogger(WorldBuilderFromConfig.class.getName());
 
     /**
      * Creates and fills a world given items and characters listed in a file
@@ -13,6 +17,7 @@ public class WorldBuilderFromConfig {
      */
     public static World createWorldFromConfig(String configFile) {
         World world = new World();
+        logger.debug("Loading world from " + configFile);
 
         // TODO: perform checks before reading the file
         try(BufferedReader reader = new BufferedReader(new FileReader(configFile))) {
@@ -46,9 +51,10 @@ public class WorldBuilderFromConfig {
             }
         } catch (IOException e) {
             // TODO: replace generic exception with specific exceptions and clear user messages
-            System.out.println("IO exception: " + e.getMessage());
+            logger.error("Error reading config file " + configFile, e);
         }
 
+        logger.info("Created a world with " + world.getItems().size() + " items");
         return world;
     }
 }
